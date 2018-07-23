@@ -6,8 +6,12 @@ library(sqldf)
 data<-read.csv("/Users/ni/Documents/Incubator/MU_REPORT.csv", header=TRUE)
 str(data)
 
+
 df1<-sqldf("SELECT COUNT(DISTINCT NPI) AS Number_of_NPI, Program_Year AS Program_Year
             FROM data
            GROUP BY Program_Year"
           )
-hist(df1$Program_Year)
+
+plot(x=df1$Program_Year,y=df1$Number_of_NPI, main='Number of NPIs per Year')
+with(df1, text(df1$Number_of_NPI~Program_Year, labels = df1$Number_of_NPI, pos = 4))
+
