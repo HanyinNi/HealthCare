@@ -1,0 +1,13 @@
+2ND PLOT
+
+df3<-sqldf("SELECT 
+            COUNT(DISTINCT NPI) AS Number_of_NPI, Specialty
+            FROM data
+           GROUP BY Specialty
+           ORDER BY Number_of_NPI DESC"
+)
+df3$Specialty<-as.factor(df3$Specialty)
+df4<-df3[1:5,]
+
+plot(x=df4$Specialty,y=df4$Number_of_NPI, main='Top 5 - Number of NPIs per Specialty')
+with(df4, text(df4$Number_of_NPI~df4$Specialty, labels = df4$Number_of_NPI, pos = 4))
