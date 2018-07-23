@@ -1,6 +1,4 @@
 # HealthCare
-EHR Products 2016
-
 
 EHR Attestation Program - Meaningful Use EHR Attestation Data -- CSV (234M)
 URL: https://dashboard.healthit.gov/datadashboard/documentation/ehr-products-mu-attestation-data-documentation.php
