@@ -1,0 +1,13 @@
+1ST PLOT
+
+install.packages("sqldf")
+library(sqldf)
+
+data<-read.csv("/Users/ni/Documents/Incubator/MU_REPORT.csv", header=TRUE)
+str(data)
+
+df1<-sqldf("SELECT COUNT(DISTINCT NPI) AS Number_of_NPI, Program_Year AS Program_Year
+            FROM data
+           GROUP BY Program_Year"
+          )
+hist(df1$Program_Year)
